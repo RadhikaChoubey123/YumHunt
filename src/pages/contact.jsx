@@ -16,10 +16,10 @@ export const Contact = () => {
 
         emailjs
             .sendForm(
-                "service_39he9ks",     // Service ID
-                "template_4n4x21n",   // Template ID
+                "service_xxxx",     // Service ID
+                "template_xxxx",   // Template ID
                 formRef.current,      // FORM reference
-                "1LfcEV9oXwtS5hR2w"   // Public Key
+                "YOUR_PUBLIC_KEY"   // Public Key
             )
             .then(
                 () => {
