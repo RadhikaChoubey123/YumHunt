@@ -30,7 +30,7 @@ export const Search = () => {
     if (isError) return <p className="text-center my-64">Error fetching data</p>;
 
     return (
-        <section className="max-w-7xl mx-auto mt-40 px-4 py-10">
+        <section className="max-w-7xl mx-auto mt-30  sm:mt-40 px-4 sm:pt-16">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-10 text-neutral-700">
                 🔍 Search Recipes
             </h1>

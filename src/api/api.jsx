@@ -21,7 +21,7 @@ export const fetchMeals = async (name) => {
 //latest Recipes
 export const latestMeals = async () => {
     const res = await API.get("/search.php?s=");
-    return res.data.meals.slice(9, 18);
+    return res.data.meals.slice(11, 20);
 }
 
 export const LRDetails = async (id) => {

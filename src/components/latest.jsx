@@ -1,6 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import { latestMeals } from "../api/api"
 import { useNavigate } from "react-router-dom"
+import FavoriteButton from "../pages/FavoriteButton"
+import { useShare } from "../hooks/useShare"
+import { FaShareAlt } from "react-icons/fa";
 
 const LatestMeals = () => {
     const { data, isLoading, isError } = useQuery({
@@ -9,6 +12,7 @@ const LatestMeals = () => {
     })
     console.log(data);
     const navigate = useNavigate();
+    const { copiedId, handleShare } = useShare();
 
     if (isLoading) return <p className="text-center mt-10">Loading...</p>;
     if (isError) return <p className="text-center mt-10">Error fetching data</p>;
@@ -26,6 +30,25 @@ const LatestMeals = () => {
                         <p className="text-sm text-gray-600  px-7 line-clamp-2">
                             {meals.strInstructions?.slice(0, 70)}...
                         </p>
+                        <div
+                            className="absolute top-3 right-3 z-10"
+                            onClick={(e) => e.stopPropagation()}>
+                            <FavoriteButton recipeId={meals.idMeal} />
+                        </div>
+                        <div
+                            className="absolute top-3 left-3 z-10 bg-white/80 p-2 rounded-full shadow-md hover:bg-white text-gray-700 hover:text-amber-600 transition cursor-pointer flex items-center justify-center"
+                            
+                            onClick={(e) => handleShare(e, "recipes", meals.idMeal)}
+                            title="Share Recipe">
+                            <FaShareAlt size={16} />
+                            {copiedId === meals.idMeal && (
+                                <span className="absolute left-10 bg-white/80  hover:bg-white text-gray-700 text-xs px-2 py-1 rounded whitespace-nowrap shadow-md">
+                                    Copied!
+                                </span>
+                            )}
+                        </div>
+
+
                         <div className="px-7 mt-6 py-1">
                             <button onClick={() => navigate(`/recipes/${meals.idMeal}`)} className="  bg-amber-600 cursor-pointer hover:bg-amber-700  text-white px-3 py-2 rounded text-sm font-semibold">View Details →</button>
                         </div>

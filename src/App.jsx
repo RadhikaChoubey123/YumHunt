@@ -2,6 +2,7 @@ import Home from "./pages/Home"
 import { RecipesList } from "./pages/RecipesList"
 import About from "./pages/about"
 import Contact from "./pages/contact"
+import Register from "./pages/register"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 import './index.css'
@@ -10,6 +11,10 @@ import { AppLayout } from "./layout/AppLayout"
 import CategoryRecipes from "./components/CategoryRecipes"
 import { LRDetail } from "./components/LRDetail"
 import { Search } from "./components/search"
+import Login from "./pages/login"
+import Profile from "./pages/profile"
+import ProtectedRoute from "./components/ProtectedRoute"
+import Favorites from "./pages/Favorites"
 
 const router = createBrowserRouter([
   {
@@ -44,7 +49,31 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <Search />
-      }
+      },
+      {
+        path: "/register",
+        element: < Register />
+      },
+      {
+        path: "/login",
+        element: < Login />
+      },
+      {
+        path: "/profile",
+        element: (
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        )
+      },
+      {
+  path: "/favorites",
+  element: (
+    <ProtectedRoute>
+      <Favorites />
+    </ProtectedRoute>
+  )
+}
 
     ]
   }

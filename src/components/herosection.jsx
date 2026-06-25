@@ -16,7 +16,7 @@ const slides = [
 
 export const HeroSlider = () => {
     return (
-        <section className="w-full h-[300px] sm:h-[650px] mt-40 sm:mt-40">
+        <section className="w-full h-[300px] sm:h-[650px] mt-22 sm:mt-40">
             <Swiper
                 modules={[Autoplay, Pagination]}
                 autoplay={{ delay: 2500, disableOnInteraction: false }}
