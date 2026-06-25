@@ -12,10 +12,10 @@ export const Contact = () => {
     const emailMutation = useMutation({
         mutationFn: (formElement) => {
             return emailjs.sendForm(
-                "service_39he9ks",     // Service ID
-                "template_4n4x21n",   // Template ID
+                Service ID
+                Template ID
                 formElement,          // FORM reference
-                "R5iQ29Wz6Z2qKwAo2"  // Public Key
+                Public Key
             );
         },
         onSuccess: () => {
