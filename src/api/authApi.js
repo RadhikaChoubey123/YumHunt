@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API = axios.create({
     // Strict port binding with local IP address
-    baseURL: "http://localhost:5001/api",
+    baseURL: "https://yumhunt-backend.onrender.com/api",
     headers: {
         "Content-Type": "application/json"
     }
